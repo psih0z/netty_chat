@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE properties SYSTEM 'http://java.sun.com/dtd/properties.dtd'>
+
+<properties>
+
+    <!-- Global confiduration -->
+
+    <entry key="game.port">9092</entry>
+    <entry key="secure.port">843</entry>
+
+    <!--<entry key='database.driverFile'>/home/user/Documents/traccar/hsqldb.jar</entry>-->
+    <entry key='database.driver'>com.mysql.jdbc.Driver</entry>
+    <entry key='database.url'>jdbc:mysql://127.0.0.1/darcity_db?allowMultiQueries=true&amp;characterEncoding=UTF8</entry>
+    <entry key='database.user'>login</entry>
+    <entry key='database.password'>pass</entry>
+
+    <!-- Logging options -->
+    <entry key='logger.enable'>true</entry>
+    <entry key='logger.file'>dctserver.log</entry>
+
+    <entry key="database.selectMessages">
+    	SELECT
+    		*
+    	FROM
+    		messages
+    	WHERE
+    		room = :room
+    	ORDER BY time ASC
+    	LIMIT 100;
+    </entry>
+
+    <entry key="database.insertMessage">
+        insert into messages (time, name, msg, room) values (:time, :name, :msg, :room);
+    </entry>
+
+</properties>
